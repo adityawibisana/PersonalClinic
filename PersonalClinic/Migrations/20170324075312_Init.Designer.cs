@@ -8,8 +8,8 @@ using PersonalClinic.Models;
 namespace PersonalClinic.Migrations
 {
     [DbContext(typeof(PersonalClinicContext))]
-    [Migration("20170324065806_BirthdatePatient")]
-    partial class BirthdatePatient
+    [Migration("20170324075312_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,7 +37,8 @@ namespace PersonalClinic.Migrations
 
             modelBuilder.Entity("PersonalClinic.Models.Patient", b =>
                 {
-                    b.Property<int>("Id");
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Address");
 
@@ -49,7 +50,7 @@ namespace PersonalClinic.Migrations
 
                     b.Property<string>("PhoneNumber");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("Patient");
                 });

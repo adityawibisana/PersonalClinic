@@ -36,7 +36,8 @@ namespace PersonalClinic.Migrations
 
             modelBuilder.Entity("PersonalClinic.Models.Patient", b =>
                 {
-                    b.Property<int>("Id");
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Address");
 
@@ -48,7 +49,7 @@ namespace PersonalClinic.Migrations
 
                     b.Property<string>("PhoneNumber");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("Patient");
                 });
