@@ -10,8 +10,13 @@
 <div>
     <h4>Patient</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <input type="hidden" asp-for="Id" />
+    <dl class="dl-horizontal"> 
+        <dt>
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Name)
         </dt>
