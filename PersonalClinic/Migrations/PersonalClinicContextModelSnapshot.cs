@@ -18,7 +18,7 @@ namespace PersonalClinic.Migrations
 
             modelBuilder.Entity("PersonalClinic.Models.History", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("CreationDate");
@@ -27,7 +27,7 @@ namespace PersonalClinic.Migrations
 
                     b.Property<int>("PatientId");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.HasIndex("PatientId");
 

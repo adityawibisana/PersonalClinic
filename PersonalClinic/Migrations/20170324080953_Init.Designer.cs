@@ -8,7 +8,7 @@ using PersonalClinic.Models;
 namespace PersonalClinic.Migrations
 {
     [DbContext(typeof(PersonalClinicContext))]
-    [Migration("20170324075312_Init")]
+    [Migration("20170324080953_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -19,7 +19,7 @@ namespace PersonalClinic.Migrations
 
             modelBuilder.Entity("PersonalClinic.Models.History", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("CreationDate");
@@ -28,7 +28,7 @@ namespace PersonalClinic.Migrations
 
                     b.Property<int>("PatientId");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.HasIndex("PatientId");
 

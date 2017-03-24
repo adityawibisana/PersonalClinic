@@ -30,14 +30,14 @@ namespace PersonalClinic.Migrations
                 name: "History",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    ID = table.Column<Guid>(nullable: false),
                     CreationDate = table.Column<DateTime>(nullable: false),
                     Note = table.Column<string>(nullable: true),
                     PatientId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_History", x => x.Id);
+                    table.PrimaryKey("PK_History", x => x.ID);
                     table.ForeignKey(
                         name: "FK_History_Patient_PatientId",
                         column: x => x.PatientId,
