@@ -8,9 +8,10 @@ using PersonalClinic.Models;
 namespace PersonalClinic.Migrations
 {
     [DbContext(typeof(PersonalClinicContext))]
-    partial class PersonalClinicContextModelSnapshot : ModelSnapshot
+    [Migration("20170324065806_BirthdatePatient")]
+    partial class BirthdatePatient
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
