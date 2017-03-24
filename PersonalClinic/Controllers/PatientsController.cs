@@ -53,7 +53,7 @@ namespace PersonalClinic.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,PhoneNumber,Address,Identifier")] Patient patient)
+        public async Task<IActionResult> Create([Bind("Id,Name,PhoneNumber,Address,Identifier,BirthDate")] Patient patient)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace PersonalClinic.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,PhoneNumber,Address,Identifier")] Patient patient)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,PhoneNumber,Address,Identifier,BirthDate")] Patient patient)
         {
             if (id != patient.Id)
             {
