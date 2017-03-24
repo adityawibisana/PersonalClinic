@@ -33,7 +33,7 @@ namespace PersonalClinic.Controllers
             }
 
             var patient = await _context.Patient
-                .SingleOrDefaultAsync(m => m.Id == id);
+                .SingleOrDefaultAsync(m => m.ID == id);
             if (patient == null)
             {
                 return NotFound();
@@ -53,7 +53,7 @@ namespace PersonalClinic.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,PhoneNumber,Address,Identifier,BirthDate")] Patient patient)
+        public async Task<IActionResult> Create([Bind("ID,Name,PhoneNumber,Address,Identifier,BirthDate")] Patient patient)
         {
             if (ModelState.IsValid)
             {
@@ -72,7 +72,7 @@ namespace PersonalClinic.Controllers
                 return NotFound();
             }
 
-            var patient = await _context.Patient.SingleOrDefaultAsync(m => m.Id == id);
+            var patient = await _context.Patient.SingleOrDefaultAsync(m => m.ID == id);
             if (patient == null)
             {
                 return NotFound();
@@ -85,9 +85,9 @@ namespace PersonalClinic.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,PhoneNumber,Address,Identifier,BirthDate")] Patient patient)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,PhoneNumber,Address,Identifier,BirthDate")] Patient patient)
         {
-            if (id != patient.Id)
+            if (id != patient.ID)
             {
                 return NotFound();
             }
@@ -101,7 +101,7 @@ namespace PersonalClinic.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PatientExists(patient.Id))
+                    if (!PatientExists(patient.ID))
                     {
                         return NotFound();
                     }
@@ -124,7 +124,7 @@ namespace PersonalClinic.Controllers
             }
 
             var patient = await _context.Patient
-                .SingleOrDefaultAsync(m => m.Id == id);
+                .SingleOrDefaultAsync(m => m.ID == id);
             if (patient == null)
             {
                 return NotFound();
@@ -138,7 +138,7 @@ namespace PersonalClinic.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var patient = await _context.Patient.SingleOrDefaultAsync(m => m.Id == id);
+            var patient = await _context.Patient.SingleOrDefaultAsync(m => m.ID == id);
             _context.Patient.Remove(patient);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
@@ -146,7 +146,7 @@ namespace PersonalClinic.Controllers
 
         private bool PatientExists(int id)
         {
-            return _context.Patient.Any(e => e.Id == id);
+            return _context.Patient.Any(e => e.ID == id);
         }
     }
 }

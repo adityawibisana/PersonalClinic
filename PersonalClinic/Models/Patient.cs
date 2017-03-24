@@ -6,9 +6,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace PersonalClinic.Models
 {
     public class Patient
-    {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Id { get; set; }
+    { 
+        public int ID { get; set; }
 
         [Display(Name="Nama")]
         public String Name { get; set; }
