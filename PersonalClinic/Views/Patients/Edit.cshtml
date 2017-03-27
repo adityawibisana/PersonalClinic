@@ -11,7 +11,7 @@
         <h4>Patient</h4>
         <hr />
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    
+
         <div class="form-group">
             <label asp-for="Name" class="col-md-2 control-label"></label>
             <div class="col-md-10">
@@ -54,6 +54,51 @@
         </div>
     </div>
 </form>
+
+<div>
+    <table class="table">
+        <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Histories[0].CreationDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Histories[0].Note)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+        <tbody>
+            @{
+                if (Model.Histories != null)
+                {
+                    @foreach (var item in Model.Histories)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreationDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Note)
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                     <tr>
+                         <td>
+                             -
+                         </td>
+                         <td>
+                             -
+                         </td>
+                     </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
 
 <div>
     <a asp-action="Index">Back to List</a>
