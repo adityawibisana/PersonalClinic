@@ -15,13 +15,27 @@ namespace PersonalClinic.Controllers
 
         public PatientsController(PersonalClinicContext context)
         {
-            _context = context;    
+            _context = context;
         }
 
         // GET: Patients
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(String searchString)
         {
-            return View(await _context.Patient.ToListAsync());
+            var patients = from p in _context.Patient
+                           select p;
+
+
+            ViewData["SearchFilter"] = searchString;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                patients = patients.Where(p => p.Name.Contains(searchString)
+                                            || p.Identifier.Contains(searchString)
+                                            || p.Address.Contains(searchString)
+                                            || p.PhoneNumber.Contains(searchString));
+            }
+
+            return View(await patients.ToListAsync());
         }
 
         // GET: Patients/Details/5
